@@ -2,6 +2,20 @@
 <html>
   <head>
     <title>URL bar typer</title>
+
+    <script>
+      let string = 'this-is-a-test'
+      let stringSoFar = ''
+      const type = (url) => {
+        if (string.length === 0) { return }
+        stringSoFar += string[0]
+        string = string.substr(1)
+        window.history.pushState(null, '', '/' + stringSoFar)
+        window.setTimeout(type, 50)
+      }
+
+      type()
+    </script>
   </head>
   <body>
   </body>
